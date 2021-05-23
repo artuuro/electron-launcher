@@ -1,0 +1,5 @@
+client/*
+cache/*
+out/*
+node_modules/
+.vscode/

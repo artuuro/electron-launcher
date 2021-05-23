@@ -1,0 +1,314 @@
+@import 'https://fonts.googleapis.com/css2?family=Roboto&display=swap';
+@import 'fork-awesome.min.css';
+@import 'backgrounds.css';
+
+
+* {
+    box-sizing: border-box;
+    user-select: none;
+    font-family: Roboto;
+}
+
+:root {
+    --glow-gradient: linear-gradient(-75deg, rgba(0, 0, 0, 1) 20%, #000 50%, rgba(0, 0, 0, 1) 90%);
+    --transparent-border: 1px solid rgba(255, 255, 255, .3);
+    --border-radius: 0;
+    --gold: gold;
+    --purple: #6f42c1;
+    --t-gold: rgba(255, 215, 0, 0.5);
+    --block-box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.85);
+    --block-box-shadow-light: 0 5px 5px 0 rgba(20, 20, 20, 0.4);
+    --black: #000;
+    --t-black: rgba(0, 0, 0, .8);
+    --t-black-2: rgba(0, 0, 0, .4);
+    --t-black-dark: rgba(0, 0, 0, .85);
+    --t-white-light: rgba(255, 255, 255, .85);
+    --t-white: rgba(255, 255, 255, .3);
+    --t-white-2: rgba(255, 255, 255, .1);
+    --t-brown: rgba(165, 42, 42, .9);
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 25px var(--black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: brown;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--t-black-dark);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+}
+
+.header {
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background: #000;
+    padding: 10px;
+}
+
+.header .icon {
+    background: #000;
+    width: 40px;
+    height: 40px;
+    -webkit-app-region: drag;
+}
+
+.header .icon img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.header button {
+    border: none;
+    background: var(--purple);
+    color: white;
+    font-weight: bold;
+    transition: opacity 0.3s ease-in-out;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+
+.header button#launch {
+    background: brown;
+}
+
+input:focus,
+button:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.header button:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: calc(100% - 60px);
+    background: url('../assets/bg.jpg') top center no-repeat;
+    background-size: cover;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+
+#auth,
+#news {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#news {
+    width: 75%;
+    position: relative;
+    z-index: 99999;
+}
+
+#auth {
+    width: 35%;
+    align-items: center;
+    background: rgb(0, 0, 0, 0.3);
+    justify-content: center;
+    padding-bottom: 20px;
+    position: relative;
+    z-index: 99999;
+    box-shadow: inset 35px 0 75px rgb(0 0 0);
+}
+
+#auth form .form-group,
+#auth form {
+    display: flex;
+    flex-direction: column;
+}
+
+#auth form .form-group>* {
+    width: 100%;
+}
+
+#auth form .form-group label {
+    color: brown;
+    font-weight: 700;
+    font-size: 0.8em;
+    padding-bottom: 5px;
+}
+
+#auth form .form-notice {
+    font-size: 0.8em;
+    color: #fff;
+    margin-top: 10px;
+}
+
+#auth form .form-notice a {
+    color: gold;
+    text-decoration: none;
+}
+
+#auth form .form-group input {
+    margin-bottom: 5px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    color: var(--purple);
+}
+
+#auth form .form-group button {
+    margin-top: 10px;
+    border: none;
+    background: var(--purple);
+    color: #fff;
+    padding: 8px 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+#auth form .form-group button:hover {
+    cursor: pointer;
+}
+
+#news .subject,
+#news .content {
+    padding: 5px 10px 5px 10px;
+}
+
+#news .subject {
+    background: rgba(0, 0, 0, .7);
+}
+
+#news .subject b {
+    color: brown;
+}
+
+#news .subject span {
+    font-size: 0.8em;
+    color: gold;
+}
+
+#news .content {
+    white-space: pre-wrap;
+    background: rgba(255, 255, 255, .6);
+    color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+#news .item:hover .content {
+    background: rgba(255, 255, 255, .9);
+}
+
+.system a,
+.system button {
+    color: #fff;
+    background: none;
+    padding: 0;
+    transition: color 0.3s ease-in-out;
+    margin-left: 5px;
+}
+
+.system a:hover,
+.system button:hover {
+    color: var(--t-brown);
+}
+
+form {
+    padding: 0 20px;
+}
+
+form .title {
+    padding: 10px 20px;
+}
+
+form .title img {
+    max-width: 100%;
+}
+
+#user.hidden,
+#signin.hidden {
+    display: none;
+}
+
+#user {
+    color: #fff;
+}
+
+#status,
+#balance {
+    padding-bottom: 15px;
+}
+
+#status .green {
+    color: green;
+}
+
+#status .red {
+    color: red;
+}
+
+#balance i {
+    color: green;
+}
+
+#welcome {
+    text-transform: uppercase;
+}
+
+#welcome b {
+    color: var(--purple);
+}
+
+#logout {
+    background: brown;
+    padding: 5px 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+#logout:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+#state {
+    background: #fff;
+}
+
+#progress {
+    color: brown;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#progress b {
+    color: gold;
+}
