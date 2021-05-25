@@ -1,16 +1,19 @@
 {
   "name": "shiroi-connector",
-  "version": "1.0.0",
-  "description": "Shiroi Online Game Launcher",
+  "version": "1.0.1",
+  "description": "Shiroi Game Launcher",
+  "repository": "https://github.com/artuuro/electron-launcher",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "author": "LITTLE TOWN",
   "license": "ISC",
   "dependencies": {
+    "@electron-forge/publisher-github": "^6.0.0-beta.56",
     "axios": "^0.21.1",
     "electron-dl": "^3.2.1",
     "electron-localshortcut": "^3.2.1",
@@ -19,13 +22,14 @@
     "moment": "^2.29.1",
     "node-stream-zip": "^1.13.4",
     "unzip": "^0.1.11",
-    "unzipper": "^0.10.11"
+    "unzipper": "^0.10.11",
+    "update-electron-app": "^2.0.1"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.55",
     "@electron-forge/maker-deb": "^6.0.0-beta.55",
     "@electron-forge/maker-rpm": "^6.0.0-beta.55",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.55",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.55", 
     "@electron-forge/maker-zip": "^6.0.0-beta.55",
     "electron": "^12.0.8"
   },
@@ -55,6 +59,17 @@
         {
           "name": "@electron-forge/maker-rpm",
           "config": {}
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "artuuro",
+              "name": "electron-launcher"
+            }
+          }
         }
       ]
     }

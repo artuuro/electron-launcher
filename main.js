@@ -7,12 +7,17 @@ const StreamZip = require('node-stream-zip');
 const localShortcut = require('electron-localshortcut');
 const cacheDir = path.join(__dirname, 'cache');
 const clientDir = path.join(__dirname, 'client');
-
+const updateApp = require('update-electron-app');
 const icon = path.join(__dirname, 'static', 'assets', 'icon.ico');
 
 let server, win, appIcon, contextMenu, activeDownload;
 
 function createWindow() {
+    updateApp({
+        updateInterval: '1 hour',
+        notifyUser: true,
+    });
+
     win = new BrowserWindow({
         width: 680,
         height: 420,
